@@ -8,8 +8,8 @@ export default function Postsections() {
     illness: "Deppression"
   }, { illness: "PTSD" }, { illness: "ADHD" }, { illness: "Split-personality disorder" }];
 
-  const [post, setPost] = useState({ title: "", description: "" })
-  const [postArray, setPostArray ] = useState([])
+  const [post, setPost] = useState({})
+  const [postArray, setPostArray] = useState([])
 
 
   function handleTitle(e) {
@@ -27,12 +27,15 @@ export default function Postsections() {
   }
 
   function handlePost() {
-    postArray.push(post)
-    alert("success")
-  }
-  console.log(postArray)
+    if(post.title=="" || post.description =="") {
+      alert("Invalid title or description")
+    } else {
+      setPostArray(prev => ([...prev, post]))
+      alert("success")
+      console.log(postArray)
 
-  console.log(post)
+    }
+  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="post-section">
@@ -41,16 +44,14 @@ export default function Postsections() {
           <div className="username-section">
             <p className="username">John Walker</p>
             <p className="tag-title">Tags:</p>
-            {/* <div className="tags">
-           
-  </div> */} </div>
+          </div>
           <p className="time">17 hours ago</p>
         </div>
         <div className="desc-section" style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
-          <select>
+          <select style={{ color: "black" }}>
             {btns.map((text) => {
               return (
-                <option>{text.illness}</option>
+                <option style={{ color: "black" }}>{text.illness}</option>
               )
             })}
           </select>
@@ -64,34 +65,36 @@ export default function Postsections() {
 
         </div>
 
-        <div className="post-map">
-          {postArray.map((text, index) => {
+        <div className="post-map" style={{ border: 1, border: "white", border: "solid", padding: 10, display: "flex" }}>
+          {postArray.map((text) => {
             return (
-              <div className="post-map">
-              <div className="user-section">
-                <img src="" />
-                <div className="username-section">
-                  <p className="username">John Walker</p>
-                  <p className="tag-title">Tags:</p>
-                  <div className="tags">
-                    {btns.map((text) => {
-                      return (
-                        <button>{text.illness}</button>
-                      )
-                    })}
+              <div className="post-map" style={{ padding: 20, border: 1 , border: "blue", border: "solid"}}>
+                <div className="user-section">
+                  <img src="" />
+                  <div className="username-section">
+                    <p className="username">John Walker</p>
+                    <p className="tag-title">Tags:</p>
+                    <div className="tags">
+                      {btns.map((text) => {
+                        return (
+                          <button>{text.illness}</button>
+                        )
+                      })}
+                    </div>
                   </div>
+                  <p className="time">17 hours ago</p>
                 </div>
-                <p className="time">17 hours ago</p>
-              </div>
-              <div className="desc-section">
-                <div className="title">{text[index].title}</div>
-                <div className="desc">{text[index].description}</div>
-              </div>
-      
-              <button className="btn" onClick={likePost}>Like</button>
-              <button className="btn" onClick={postComment}>Comment</button>
-              <button className="btn" onClick={sharePost}>Share</button>
-              <button className="btn" onClick={savePost}>Save</button>
+                <div className="desc-section">
+                  <div className="title">{text.title}</div>
+                  <div className="desc">{text.description}</div>
+                </div>
+                    <div style={{ display: "flex", flexDirection: "row", gap: 20}}>
+                <button className="btn">Like</button>
+                <button className="btn">Comment</button>
+                <button className="btn">Share</button>
+                <button className="btn">Save</button>
+
+                    </div>
               </div>
             )
           })}
@@ -105,7 +108,7 @@ export function PostMaking() {
   return (
     <main className="main-container">
       <div className="post-section">
-        
+
       </div>
     </main>
   )
