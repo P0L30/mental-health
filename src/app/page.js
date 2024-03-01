@@ -65,7 +65,7 @@ export default function Postsections() {
 
         </div>
 
-        <div className="post-map" style={{ border: 1, border: "white", border: "solid", padding: 10, display: "flex" }}>
+        <div className="post-map" style={{ border: 1, border: "white", border: "solid", padding: 10, display: "flex", flexDirection: "column", gap: 10 }}>
           {postArray.map((text) => {
             return (
               <div className="post-map" style={{ padding: 20, border: 1 , border: "blue", border: "solid"}}>
@@ -77,7 +77,7 @@ export default function Postsections() {
                     <div className="tags">
                       {btns.map((text) => {
                         return (
-                          <button>{text.illness}</button>
+                          <button style={{ marginRight: 10}}>{text.illness}</button>
                         )
                       })}
                     </div>
