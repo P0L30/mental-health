@@ -1,46 +1,73 @@
 'use client'
 
 import Image from "next/image";
-import { useState } from "react";
-
+import { useState, useMemo } from "react"
+import { useRouter } from "next/navigation";
 export default function Postsections() {
-  const btns = [{
-    illness: "Deppression"
-  }, { illness: "PTSD" }, { illness: "ADHD" }, { illness: "Split-personality disorder" }];
-
+  const myData = [
+    "Deppression",
+    "Anxiety disorder",
+    "Schizophrenia",
+    "Eating disorder",
+    "PTSD",
+    "Autism",
+    "ADHD",
+    "Insomnia",
+    "Bipolar Disorder"
+  ]
+  const router = useRouter()
+  const [com, setCom] = useState("")
   const [post, setPost] = useState({})
   const [postArray, setPostArray] = useState([])
-
 
   function handleTitle(e) {
     setPost((prev) => ({ ...prev, title: e.target.value }))
   }
-
 
   function handleDescription(e) {
     setPost((prev) => ({ ...prev, description: e.target.value }))
   }
 
   function handleDelete() {
-    setDesc("")
-    setTitle("")
+    if (post.title == "" && post.description == "") {
+
+    } else {
+      if (confirm("Are you sure about deleting?")) {
+        setTitle("")
+        setDesc("")
+      }
+
+    }
   }
 
   function handlePost() {
-    if(post.title=="" || post.description =="") {
+    if (post.title == "" || post.description == "") {
       alert("Invalid title or description")
     } else {
-      setPostArray(prev => ([...prev, post]))
+      setPostArray(prev => ([...prev, { ...post, comments: [ ] }]))
       alert("success")
       console.log(postArray)
 
     }
   }
+console.log(postArray)
+
+  
+  function handleComment( index) {
+    alert("success")
+      postArray[index].comments.push(com)
+      setCom("")
+
+    }
+    function returnComment(e) {
+      setCom(e.target.value)
+    }
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="post-section">
         <div className="user-section">
           <img src="" />
+          <button onClick={() => { router.push('https://www.youtube.com/watch?v=VyyDOB400oQ') }}>CLick me!</button>
           <div className="username-section">
             <p className="username">John Walker</p>
             <p className="tag-title">Tags:</p>
@@ -48,15 +75,15 @@ export default function Postsections() {
           <p className="time">17 hours ago</p>
         </div>
         <div className="desc-section" style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
-          <select style={{ color: "black" }}>
-            {btns.map((text) => {
+          <select>
+            {myData.map((test, index) => {
               return (
-                <option style={{ color: "black" }}>{text.illness}</option>
+                <option className="option-select">a</option>
               )
             })}
           </select>
           <input onChange={handleTitle} className="title" placeholder="Write your title here!" value={post.title} style={{ color: "black" }} />
-          <input onChange={handleDescription} className="desc" placeholder="Write your description here!" value={post.description} style={{ color: " black", }} />
+          <textarea onChange={handleDescription} className="desc" placeholder="Write your description here!" value={post.description} style={{ color: " black", }} />
         </div>
 
         <div className="button-section">
@@ -66,18 +93,18 @@ export default function Postsections() {
         </div>
 
         <div className="post-map" style={{ border: 1, border: "white", border: "solid", padding: 10, display: "flex", flexDirection: "column", gap: 10 }}>
-          {postArray.map((text) => {
+          {postArray.map((text, index) => {
             return (
-              <div className="post-map" style={{ padding: 20, border: 1 , border: "blue", border: "solid"}}>
+              <div className="post-map" style={{ padding: 20, border: 1, border: "blue", border: "solid" }}>
                 <div className="user-section">
                   <img src="" />
                   <div className="username-section">
                     <p className="username">John Walker</p>
                     <p className="tag-title">Tags:</p>
                     <div className="tags">
-                      {btns.map((text) => {
+                      {myData.map((text) => {
                         return (
-                          <button style={{ marginRight: 10}}>{text.illness}</button>
+                          <button style={{ marginRight: 10 }}>{text.illness}</button>
                         )
                       })}
                     </div>
@@ -88,12 +115,18 @@ export default function Postsections() {
                   <div className="title">{text.title}</div>
                   <div className="desc">{text.description}</div>
                 </div>
-                    <div style={{ display: "flex", flexDirection: "row", gap: 20}}>
-                <button className="btn">Like</button>
-                <button className="btn">Comment</button>
-                <button className="btn">Share</button>
-                <button className="btn">Save</button>
-
+                <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
+                  <button className="btn">Like</button>
+                  <button className="btn">Comment</button>
+                  <button className="btn">Share</button>
+                  <button className="btn">Save</button>
+                </div>
+                <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
+                  <img />
+                  <input onChange={returnComment} placeholder="Write an answer!!" style={{ color: "black" }} value={com} />
+                  <button onClick={() => handleComment(index)}>post comment</button>
+                </div>
+                    <div>
                     </div>
               </div>
             )
@@ -102,15 +135,6 @@ export default function Postsections() {
       </div>
     </main>
   );
-}
-export function PostMaking() {
-
-  return (
-    <main className="main-container">
-      <div className="post-section">
-
-      </div>
-    </main>
-  )
-}
+        }
+        
 
