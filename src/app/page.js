@@ -5,6 +5,7 @@ import { useState, useMemo } from "react"
 import { useRouter } from "next/navigation";
 export default function Postsections() {
   const myData = [
+    "More...",
     "Deppression",
     "Anxiety disorder",
     "Schizophrenia",
@@ -19,7 +20,7 @@ export default function Postsections() {
   const [com, setCom] = useState("")
   const [post, setPost] = useState({})
   const [postArray, setPostArray] = useState([])
-
+  const [herData, setHerData] = useState([])
   function handleTitle(e) {
     setPost((prev) => ({ ...prev, title: e.target.value }))
   }
@@ -44,33 +45,56 @@ export default function Postsections() {
     if (post.title == "" || post.description == "") {
       alert("Invalid title or description")
     } else {
-      setPostArray(prev => ([...prev, { ...post, comments: [ ] }]))
+      setPostArray(prev => ([...prev, { ...post, comments: [], tags: [] }]))
       alert("success")
       console.log(postArray)
 
     }
   }
-console.log(postArray)
 
-  
-  function handleComment( index) {
+  function seeClick() {
+    setIsClicked(true)
+  }
+
+  function addList(index) {
+    console.log(index)
+  }
+
+
+  function handleComment(index) {
     alert("success")
-      postArray[index].comments.push(com)
-      setCom("")
+    postArray[index].comments.push(com)
+    setCom("")
 
-    }
-    function returnComment(e) {
-      setCom(e.target.value)
-    }
+  }
+  function returnComment(e) {
+    setCom(e.target.value)
+  }
+
+  function searchNavbar(e) {
+    myData.filter((prev) => prev)
+  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="post-section">
         <div className="user-section">
           <img src="" />
-          <button onClick={() => { router.push('https://www.youtube.com/watch?v=VyyDOB400oQ') }}>CLick me!</button>
+          <button onClick={() => { router.push('https://www.youtube.com/watch?v=eauWX_UQ8HE') }}>CLick me!</button>
           <div className="username-section">
             <p className="username">John Walker</p>
-            <p className="tag-title">Tags:</p>
+            <div className="tag-title">
+              <p>Tags:</p>
+
+              <select style={{ color: "black" }} onChange={(_, index) =>  addList(index) }>
+                {myData.map((text, index) => {
+                  return (
+                    <option >{text}</option>
+                  )
+                })}
+              </select>
+
+
+            </div>
           </div>
           <p className="time">17 hours ago</p>
         </div>
@@ -126,15 +150,38 @@ console.log(postArray)
                   <input onChange={returnComment} placeholder="Write an answer!!" style={{ color: "black" }} value={com} />
                   <button onClick={() => handleComment(index)}>post comment</button>
                 </div>
-                    <div>
-                    </div>
+                <div>
+                </div>
               </div>
             )
           })}
         </div>
+
+        <input className="search-navbar" placeholder="Search here!" onChange={() => searchNavbar()} />
+
+        <div>
+
+          {herData.map((text) => {
+            return (
+              <button>{text}</button>
+            )
+          })}
+          <button style={{ width: 100, height: 100, background: "white", color: "black" }}>PTSD</button>
+          <button style={{ width: 100, height: 100, background: "white", color: "black" }}>Deppression</button>
+          <button style={{ width: 100, height: 100, background: "white", color: "black" }}>Anxiety</button>
+          <select style={{ color: "black" }}>
+            {myData.map((text, index) => {
+              return (
+                <option onClick={() => addList(index)}>{text}</option>
+              )
+            })}
+          </select>
+        </div>
       </div>
+
+
     </main>
   );
-        }
-        
+}
+
 
