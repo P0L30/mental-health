@@ -34,8 +34,7 @@ export default function Postsections() {
 
     } else {
       if (confirm("Are you sure about deleting?")) {
-        setTitle("")
-        setDesc("")
+        setPost(post.title(""))
       }
 
     }
@@ -52,19 +51,17 @@ export default function Postsections() {
     }
   }
 
-  function seeClick() {
-    setIsClicked(true)
+  function seeClick(option) {
+
   }
 
-  function addList(index) {
-    console.log(index)
-  }
 
 
   function handleComment(index) {
     alert("success")
     postArray[index].comments.push(com)
     setCom("")
+    console.log(postArray)
 
   }
   function returnComment(e) {
@@ -85,7 +82,7 @@ export default function Postsections() {
             <div className="tag-title">
               <p>Tags:</p>
 
-              <select style={{ color: "black" }} onChange={(_, index) =>  addList(index) }>
+              <select style={{ color: "black" }} onChange={(_, index) => addList(index)}>
                 {myData.map((text, index) => {
                   return (
                     <option >{text}</option>
@@ -118,6 +115,7 @@ export default function Postsections() {
 
         <div className="post-map" style={{ border: 1, border: "white", border: "solid", padding: 10, display: "flex", flexDirection: "column", gap: 10 }}>
           {postArray.map((text, index) => {
+
             return (
               <div className="post-map" style={{ padding: 20, border: 1, border: "blue", border: "solid" }}>
                 <div className="user-section">
@@ -125,13 +123,13 @@ export default function Postsections() {
                   <div className="username-section">
                     <p className="username">John Walker</p>
                     <p className="tag-title">Tags:</p>
-                    <div className="tags">
+                    <select style={{ color: "black" }} onChange={(_, option) => seeClick()}>
                       {myData.map((text) => {
                         return (
-                          <button style={{ marginRight: 10 }}>{text.illness}</button>
+                          <option >{text}</option>
                         )
                       })}
-                    </div>
+                    </select>
                   </div>
                   <p className="time">17 hours ago</p>
                 </div>
@@ -149,6 +147,15 @@ export default function Postsections() {
                   <img />
                   <input onChange={returnComment} placeholder="Write an answer!!" style={{ color: "black" }} value={com} />
                   <button onClick={() => handleComment(index)}>post comment</button>
+                </div>
+                <div style={{ display: "flex", flexDirection: "columm", gap: 20 }}>
+                  {postArray.map((text) => {
+                    return (
+                      <p style={{ marginLeft: "2rem" }}>
+                        {text.comments}
+                      </p>
+                    )
+                  })}
                 </div>
                 <div>
                 </div>
@@ -183,5 +190,28 @@ export default function Postsections() {
     </main>
   );
 }
-
+export function Post() {
+  return (
+    <main style={{ background: "white", width: "100vw", height: "100vh", display: "flex", flexDirection: "column"}}> 
+      <div>
+        <p></p>
+        <div>
+          <p></p>
+          <select>
+            <option></option>
+          </select>
+          <p></p>
+        </div>
+          <div></div>
+          <div></div>
+          <div>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+          </div>
+      </div>
+    </main>
+  )
+}
 
