@@ -1,10 +1,61 @@
 'use client'
-
-import Image from "next/image";
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation";
-export default function Postsections() {
-  const myData = ["More...", "Deppression", "Anxiety disorder", "Schizophrenia", "Eating disorder", "PTSD", "Autism", "ADHD", "Insomnia", "Bipolar Disorder"]
+import axios from "axios"
+
+export function Postsections() {
+  const PostSection = (text) => {
+    const [tagValue, setTagValue] = useState([])
+    const [comValue, setComValue] = useState('')
+    function handleIDK(e) {
+      setComValue(e.target.value)
+    }
+    return (
+      <div className="post-map" style={{ padding: 20, border: 1, border: "blue", border: "solid" }}>
+        <div className="user-section">
+          <img src="" />
+          <div className="username-section">
+            <div className="username">John Walker</div>
+            <div className="tag-title">Tags:</div>
+            {postArray.map((text) => {
+              return (
+                <p style={{ color: "black", background: "white", paddingRight: 20 }}>{text.tags}</p>
+              )
+            })}
+          </div>
+          <p className="time">17 hours ago</p>
+        </div>
+        <div className="desc-section">
+          <div className="title">{text.title}</div>
+          <div className="desc">{text.description}</div>
+        </div>
+        <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
+          <button className="btn">Like</button>
+          <button className="btn">Comment</button>
+          <button className="btn">Share</button>
+        </div>
+        <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
+          <img />
+          <input onChange={handleIDK} placeholder="Write an answer!!" style={{ color: "black" }} value={comValue} />
+          <button onclick={() => handleComment(index)}>post comment</button>
+        </div>
+        <div style={{ display: "flex", flexDirection: "columm", gap: 20 }}>
+          {postArray.map((text) => {
+            return (
+              <div style={{ marginLeft: "2rem" }} >
+                {text.comments}
+              </div>
+            )
+          })}
+        </div>
+        <div>
+        </div>
+      </div>
+    )
+  }
+
+
+  const myData = ["Deppression", "Anxiety disorder", "Schizophrenia", "Eating disorder", "PTSD", "Autism", "ADHD", "Insomnia", "Bipolar Disorder"]
   const router = useRouter()
   const [com, setCom] = useState("")
   const [post, setPost] = useState({})
@@ -34,7 +85,7 @@ export default function Postsections() {
     if (post.title == "" || post.description == "") {
       alert("Invalid title or description")
     } else {
-      setPostArray(prev => ([...prev, { ...post, comments: [],}]))
+      setPostArray(prev => ([...prev, { ...post, comments: [], }]))
       alert("success")
       console.log(postArray)
 
@@ -48,9 +99,9 @@ export default function Postsections() {
     console.log(postArray)
   }
 
-  function seeType(e) {
+  function giveTags(e) {
     console.log(e.target.value)
-    setPost((prev) => ({ ...prev, tags: [...(prev.tags ?? []), e.target.value] }))
+    setPost((prev) => ({ ...prev, tags: [...(prev.tags ?? [""]), e.target.value] }))
     console.log(post.tags)
   }
 
@@ -64,7 +115,7 @@ export default function Postsections() {
             <p className="username" style={{ marginTop: 10 }}>John Walker</p>
             <div style={{ display: "flex", flexDirection: "row", gap: 20, marginTop: 10 }}>
               <p>Tags:</p>
-              <select style={{ color: "black" }} onChange={seeType} >
+              <select style={{ color: "black" }} onChange={giveTags} >
                 {myData.map((text) => {
                   return (
                     <option>{text}</option>
@@ -89,49 +140,9 @@ export default function Postsections() {
         </div>
 
         <div className="post-map" style={{ border: 1, border: "white", border: "solid", padding: 10, display: "flex", flexDirection: "column", gap: 10, marginTop: 50 }}>
-          {postArray.map((text, index) => {
-
+          {postArray.map((text) => {
             return (
-              <div className="post-map" style={{ padding: 20, border: 1, border: "blue", border: "solid" }}>
-                <div className="user-section">
-                  <img src="" />
-                  <div className="username-section">
-                    <p className="username">John Walker</p>
-                    <p className="tag-title">Tags:</p>
-                    {postArray.map((text) => {
-                      return (
-                        <p style={{ color: "black", background: "white", paddingRight: 20 }}>{text.tags}</p>
-                      )
-                    })}
-                  </div>
-                  <p className="time">17 hours ago</p>
-                </div>
-                <div className="desc-section">
-                  <div className="title">{text.title}</div>
-                  <div className="desc">{text.description}</div>
-                </div>
-                <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
-                  <button className="btn">Like</button>
-                  <button className="btn">Comment</button>
-                  <button className="btn">Share</button>
-                </div>
-                <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
-                  <img />
-                  <input onChange={returnComment} placeholder="Write an answer!!" style={{ color: "black" }} value={com} />
-                  <button onClick={() => handleComment(index)}>post comment</button>
-                </div>
-                <div style={{ display: "flex", flexDirection: "columm", gap: 20 }}>
-                  {postArray.map((text) => {
-                    return (
-                      <p style={{ marginLeft: "2rem" }}>
-                        {text.comments}
-                      </p>
-                    )
-                  })}
-                </div>
-                <div>
-                </div>
-              </div>
+              <PostSection text={text} />
             )
           })}
         </div>
@@ -139,4 +150,78 @@ export default function Postsections() {
       </div>
     </main>
   );
+}
+export default function Post() {
+  const myData = ["Deppression", "Anxiety disorder", "Schizophrenia", "Eating disorder", "PTSD", "Autism", "ADHD", "Insomnia", "Bipolar Disorder"]
+  const [postArray, setPostArray] = useState([])
+  const [postPrior, setPostPrior] = useState({})
+  const arr = Object.values(postPrior.tags ?? {})
+
+  function handlePostTitle(e) {
+    setPostPrior((prev) => ({ ...prev, title: e.target.value }))
+  }
+  function handlePostDescription(e) {
+    setPostPrior((prev) => ({ ...prev, description: e.target.value }))
+  }
+  function postDelete() {
+    if (postPrior.title == "" && postPrior.description == "") {
+      alert("There is nothing to delete you bigot!")
+    } else {
+      if (confirm("Are you sure about deleting? All progress is Deleted")) {
+        setPostPrior((prev) => ({ ...prev, title: "", description: "", tags: [] }))
+        alert("Success for deleting a post!")
+      }
+    }
+  }
+  function postCreate() {
+    if (postPrior.title == "" || postPrior.description == "") {
+      alert("Invalid title or description")
+    } else {
+      setPostArray((prev) => ([...prev, { ...postPrior, comments: [], tags: [] }]))
+      alert("Success for creating a post!")
+      setPostPrior((prev) => ({ ...prev, tags: [], title: "", description: "" }))
+      console.log(postArray)
+    }
+  }
+  function postGiveTags(e) {
+    //selectes avsan elementiig uur neg arrayd ugch avsan elementiig ustgah ba createpost deer refresh hiinge huulbar arrayd hiine
+    if (!postPrior.tags?.find((cur) => cur === e.target.value))
+      setPostPrior((prev) => ({ ...prev, tags: [...(prev.tags ?? [""]), e.target.value] }))
+  }
+
+  function deleteTags(index) {
+    console.log(arr[index])
+  }
+  console.log(postPrior.tags)
+  console.log(arr)
+
+  return (
+    <main style={{ display: "flex", alignItems: "center", paddingTop: 30, flexDirection: "column", gap: 20 }}>
+      <p style={{ fontSize: 45 }}>Post creating process please put css in it</p>
+      <div className="desc-section" style={{ display: "flex", flexDirection: "column", gap: "20px", marginTop: 10 }}>
+        <input onChange={handlePostTitle} value={postPrior.title} className="title" placeholder="Title" style={{ color: "black", height: 50, width: 500, fontSize: 20, borderRadius: 10 }} />
+        <input onChange={handlePostDescription} value={postPrior.description} className="description" placeholder="Description" style={{ color: "black", height: 100, width: 500, fontSize: 15, borderRadius: 10 }} />
+      </div>
+      <div className="tags-section">
+        <select style={{ color: "black", height: 45 }} onChange={postGiveTags}>
+          {myData.map((text) => {
+            return <option>{text}</option>
+          })}
+        </select>
+
+        <div className="tags-shown-sections" style={{ display: "flex", gap: 20, flexDirection: "row" }}>
+          {arr.map((text, index) => {
+            return (
+              <button style={{ width: 200, height: 50, background: "blue", display: "flex", gap: 20 }} onClick={() => deleteTags(index)}>{text}</button>
+
+            )
+          })}
+        </div>
+      </div>
+      <div className="button section" style={{ display: "flex", gap: 20 }}>
+        <button onClick={postDelete} style={{ width: 250, height: 50, background: "white", color: "black", borderRadius: 10 }} className="delete-post">Delete post</button>
+        <button onClick={postCreate} style={{ width: 250, height: 50, background: "white", color: "black", borderRadius: 10 }} className="submit-post">Submit post</button>
+      </div>
+    </main>
+  )
 }
