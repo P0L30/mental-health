@@ -2,13 +2,12 @@
 import express from "express"
 import mongoose from "mongoose"
 import { postRouter } from "./router/post-router.js"
-
-
+import bodyParser from "body-parser"
 
 const app = express()
 
-
 const PORT = 5000
+app.use(bodyParser.json())
 app.use(postRouter)
 
 

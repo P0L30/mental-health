@@ -4,8 +4,8 @@ import { getAllPosts, createPost, getPost, updatePost, deletePost } from "../con
 export const postRouter = express.Router()
 
 
-postRouter.get("/", getAllPosts)
-postRouter.get("/:id", getPost)
-postRouter.post("/", createPost)
-postRouter.put("/:id", updatePost)
+postRouter.get("/getPost/", getAllPosts)
+postRouter.get("/getPost/:id", getPost)
+postRouter.post("/createPost/", createPost)
+postRouter.put("/updatePost/:id", updatePost)
 postRouter.delete("/id", deletePost)
