@@ -1,9 +1,11 @@
 'use client'
 import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios"
 
-export function Postsections() {
+
+export function Postsections({ searchParams }) {
+  // searchParams.id
   const PostSection = (text) => {
     const [tagValue, setTagValue] = useState([])
     const [comValue, setComValue] = useState('')
@@ -105,6 +107,21 @@ export function Postsections() {
     console.log(post.tags)
   }
 
+
+  // router.push('/post'+'?id'+post._id)
+
+
+
+
+  const { data } = axios.post('http://localhost:', {
+    comments: postPrior.comments,
+    title: postArray.title,
+    description: postArray.description,
+    tags: postArray.tags
+  })
+
+
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="post-section">
@@ -151,11 +168,44 @@ export function Postsections() {
     </main>
   );
 }
-export default function Post() {
+export function Post() {
   const myData = ["Deppression", "Anxiety disorder", "Schizophrenia", "Eating disorder", "PTSD", "Autism", "ADHD", "Insomnia", "Bipolar Disorder"]
   const [postArray, setPostArray] = useState([])
-  const [postPrior, setPostPrior] = useState({})
+  const [postPrior, setPostPrior] = useState({
+    title: "", description: "",
+    comments: {
+      owner: "",
+      likes: 0,
+      commentDescription: "",
+      replys: {
+        owner: "",
+        likes: 0,
+        replyDescription: ""
+      }
+    },
+    tags: []
+  })
   const arr = Object.values(postPrior.tags ?? {})
+
+  async function postCreate() {
+    try {
+      if (postPrior.title == "" || postPrior.description == "") {
+        alert("Invalid title or description")
+      } else {
+        const { data } = await axios.post('http://localhost:5000', {
+          title: postPrior.title,
+          description: postPrior.description,
+          comments: postPrior.comments,
+          tags: postPrior.tags
+        });
+        console.log(data)
+        alert("Success for creating a post!")
+      }
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   function handlePostTitle(e) {
     setPostPrior((prev) => ({ ...prev, title: e.target.value }))
@@ -173,18 +223,7 @@ export default function Post() {
       }
     }
   }
-  function postCreate() {
-    if (postPrior.title == "" || postPrior.description == "") {
-      alert("Invalid title or description")
-    } else {
-      setPostArray((prev) => ([...prev, { ...postPrior, comments: [], tags: [] }]))
-      alert("Success for creating a post!")
-      setPostPrior((prev) => ({ ...prev, tags: [], title: "", description: "" }))
-      console.log(postArray)
-    }
-  }
   function postGiveTags(e) {
-    //selectes avsan elementiig uur neg arrayd ugch avsan elementiig ustgah ba createpost deer refresh hiinge huulbar arrayd hiine
     if (!postPrior.tags?.find((cur) => cur === e.target.value))
       setPostPrior((prev) => ({ ...prev, tags: [...(prev.tags ?? [""]), e.target.value] }))
   }
@@ -221,6 +260,63 @@ export default function Post() {
       <div className="button section" style={{ display: "flex", gap: 20 }}>
         <button onClick={postDelete} style={{ width: 250, height: 50, background: "white", color: "black", borderRadius: 10 }} className="delete-post">Delete post</button>
         <button onClick={postCreate} style={{ width: 250, height: 50, background: "white", color: "black", borderRadius: 10 }} className="submit-post">Submit post</button>
+      </div>
+    </main>
+  )
+}
+export default function GetPost(searchParams) {
+  const [post, setPost] = useState([{}])
+  const url = useSearchParams()
+
+
+  useEffect(() => {
+    fetchPost()
+  }, [])
+
+  async function fetchPost() {
+    try {
+      const response = await axios.get("http://localhost:5000/")
+
+      setPost(response.data.Post)
+      console.log(post)
+      console.log(response.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  console.log(url)
+
+
+
+
+  return (
+    <main style={{ display: "flex", alignItems: "center", paddingTop: 30, flexDirection: "column", gap: 20 }}>
+      <div className="getPost-section">
+        <p style={{ fontSize: 45 }}>Post creating process please put css in it</p>
+        <div className="content">
+          {post.map((text) => {
+            return (
+              <div onclick={() => routerPush}>
+                <div>
+                  <div>
+                    <img></img>
+                    <div>coolDoctor</div>
+                    <div>・3h ago</div>
+                  </div>
+                  <div>{text.title}</div>
+                </div>
+                <div>
+                  {post.map((text) => {
+                    return (
+                      <p>{text.tags}</p>
+                    )
+                  })}
+                </div>
+                <div>{text.description}</div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </main>
   )
