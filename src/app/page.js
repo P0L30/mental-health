@@ -264,10 +264,10 @@ export function Post() {
     </main>
   )
 }
-export default function GetPost(searchParams) {
+export function GetPost() {
+  const router = useRouter()
   const [post, setPost] = useState([{}])
   const url = useSearchParams()
-
 
   useEffect(() => {
     fetchPost()
@@ -284,7 +284,6 @@ export default function GetPost(searchParams) {
       console.log(err)
     }
   }
-  console.log(url)
 
 
 
@@ -293,10 +292,10 @@ export default function GetPost(searchParams) {
     <main style={{ display: "flex", alignItems: "center", paddingTop: 30, flexDirection: "column", gap: 20 }}>
       <div className="getPost-section">
         <p style={{ fontSize: 45 }}>Post creating process please put css in it</p>
-        <div className="content">
-          {post.map((text) => {
+        <div className="content" style={{ display: "flex", flexDirection: "column", gap: 30 }}>
+          {post.map((text, index) => {
             return (
-              <div onclick={() => routerPush}>
+              <div onClick={() => router.push("/singlePost" + "?=" + `${text._id}`)}>
                 <div>
                   <div>
                     <img></img>
@@ -314,10 +313,41 @@ export default function GetPost(searchParams) {
                 </div>
                 <div>{text.description}</div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </main>
   )
 }
+export default function getSinglePost({ searchParams }) {
+  const [ post, setPost ] = useState({})
+  const id = useSearchParams().get('_id')
+  useEffect(() => {
+     GetPostById()
+     }, [])
+
+  async function GetPostById() {
+    const response = await axios.get(`http://localhost:5000/${id}`)
+    setPost(response.data.data)
+  }
+  console.log(post)
+
+  return (
+    <main>
+      <div className="fetch-section">
+        get single post Please put css in it
+      </div>
+
+      <div>
+        POst:
+      </div>
+
+      <div>
+        <p>{post.title}</p>
+        <p>{post.description}</p>
+        <p></p>
+      </div>
+    </main>
+  )
+} 
