@@ -1,0 +1,265 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+ 
+.center {
+    width: 100%;
+    height: 1050px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 5px 5px rgb(82, 105, 115);
+}
+ 
+.header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    background-color: white;
+    position: fixed;
+    padding-left: 200px;
+    padding-right: 100px;
+    border-bottom-width: 1px;
+    border-color: rgb(85, 208, 167);
+}
+ 
+.logo {
+    font-size: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.flex {
+    display: flex;
+}
+ 
+.NameFlex {
+    display: flex;
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: grey;
+}
+ 
+.PageName {
+    /* background-color: rgb(255, 0, 0); */
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: solid;
+}
+ 
+.PageName:hover {
+    text-decoration: underline rgb(85, 208, 167);
+}
+ 
+.box {
+    display: flex;
+    margin-top: 100px;
+}
+ 
+.egister {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(90, 181, 150);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.5s, font-size 0.5s;
+}
+ 
+.egister:hover {
+    background-color: rgb(102, 199, 166);
+    font-size: 18px;
+}
+ 
+.right {
+    height: 850px;
+    width: 1050px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin-bottom: 200px;
+}
+ 
+.Name {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(77, 189, 152, 0.846)
+}
+ 
+.bottomText {
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgba(77, 189, 152, 0.846)
+}
+ 
+.text {
+    font-size: 23px;
+    font-family: "Gill Sans", sans-serif;
+    color: rgb(159, 159, 159);
+    margin-top: 20px;
+}
+ 
+.button {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(90, 181, 150);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+    margin-top: 30px;
+    transition: background-color 0.5s, font-size 0.5s;
+}
+ 
+.button:hover {
+    background-color: rgb(102, 199, 166);
+    font-size: 18px;
+}
+ 
+.left {
+    height: 850px;
+    width: 1050px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.image {
+    margin-bottom: 200px;
+    z-index: 10;
+    width: 750px;
+    height: 550px;
+}
+ 
+.O {
+    width: 600px;
+    height: 600px;
+    background-color: rgb(73, 189, 150);
+    border-radius: 1000px;
+    z-index: 9;
+    position: absolute;
+    margin-bottom: 100px;
+    margin-right: 100px;
+}
+ 
+.doligon {
+    position: absolute;
+    z-index: 11;
+    bottom: 300px;
+    left: 100px;
+}
+ 
+.tseg {
+    position: absolute;
+    z-index: 11;
+    bottom: 200px;
+    right: 100px;
+}
+ 
+.ugalz {
+    position: absolute;
+    z-index: 11;
+    top: 200px;
+    right: 1000px;
+}
+ 
+.tsagirag {
+    position: absolute;
+    z-index: 11;
+    bottom: 400px;
+    right: 1000px;
+}
+ 
+.tseg {
+    position: absolute;
+    z-index: 11; 
+    bottom: 200px;
+    right: 300px;
+}
+ 
+.tseg1 {
+    position: absolute;
+    z-index: 11;
+    bottom: 350px;
+    right: 1300px;
+}
+ 
+/* @media screen and (max-width: 500px) {
+    .header{
+        width: 500px;
+    }
+} */
+.twoCenter {
+    width: 100%;
+    height: 4200px;
+    /* background-color: rgb(19, 37, 49); */
+    background-color: white;
+    box-shadow: 2px 2px 5px 5px rgb(82, 105, 115);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+}
+ 
+.widthflex {
+    width: 1600px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+ 
+.textCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 500px;
+}
+ 
+.word {
+    font-size: 60px;
+}
+ 
+.texts {
+    font-size: 18px;
+    width: 450px;
+    text-align: start;
+    margin-top: 30px;
+}
+ 
+.img {
+    width: 600px;
+    height: 500px;
+}
+ 
+.white {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 4250px;
+    left: 500px;
+    z-index: 12;
+    width: 120px;
+    height: 50px;
+}

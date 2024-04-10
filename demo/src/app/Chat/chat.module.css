@@ -1,0 +1,325 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    background-color: rgb(162, 195, 255);
+}
+ 
+ 
+.header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding-left: 200px;
+    padding-right: 100px;
+    border-bottom-width: 1px;
+    border-color: rgb(85, 208, 167);
+}
+ 
+.logo {
+    font-size: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.flex {
+    display: flex;
+}
+ 
+.NameFlex {
+    display: flex;
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: grey;
+}
+ 
+.PageName {
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: solid;
+}
+ 
+.PageName:hover {
+    text-decoration: underline rgb(85, 208, 167);
+}
+ 
+.PageNameT {
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(85, 208, 167);
+    text-decoration: underline rgb(85, 208, 167);
+}
+ 
+.center {
+    width: 100vw;
+    /* height: 100%; */
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.search {
+    position: fixed;
+    top: 200px;
+    left: 0px;
+    height: 100vh;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    /* background-color: greenyellow; */
+}
+ 
+.searchBox {
+    display: flex;
+    border-color: rgb(106, 225, 185);
+    border-width: 2px;
+    border-radius: 100px;
+    width: 324px;
+    height: 64px;
+}
+ 
+.searchInput {
+    width: 250px;
+    height: 60px;
+    position: sticky;
+    border-radius: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    z-index: 2;
+    color: grey;
+}
+ 
+.searchButton {
+    width: 100px;
+    height: 60px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background-color: rgb(106, 225, 185);
+    z-index: 1;
+    position: absolute;
+    margin-left: 220px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 20px;
+}
+ 
+.searchImg {
+    width: 40px;
+    height: 40px;
+}
+ 
+/* .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-color: grey;
+    margin-top: 200px;
+    padding-bottom: 200px;
+    border-width: 2px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 100vh;
+    overflow: scroll;
+    gap: 40px;
+} */
+ 
+.mid {
+    width: 34%;
+    height: 100vh;
+    padding-bottom: 100px;
+    padding-top: 150px;
+    overflow: auto;
+}
+ 
+.main {
+    width: 750px;
+    height: auto;
+    background-color: rgb(207, 255, 239);
+    padding-top: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    z-index: 2;
+    margin-top: 30px;
+}
+ 
+.flexC {
+    display: flex;
+    align-items: center;
+    /* color: white; */
+}
+ 
+.size {
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    margin-right: 20px;
+}
+ 
+.time {
+    color: grey;
+}
+ 
+.text {
+    padding: 5px;
+    font-size: 18px;
+}
+ 
+.select {
+    width: 120px;
+    height: 35px;
+    background-color: rgb(84, 219, 174);
+    padding-right: 15px;
+    padding-left: 15px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    border-width: 1px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+ 
+.texts {
+    width: auto;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 10px;
+}
+ 
+.flexB {
+    width: 350px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+ 
+.button {
+    width: auto;
+    height: 35px;
+    background-color: rgb(84, 219, 174);
+    padding-right: 15px;
+    padding-left: 15px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    border-width: 1px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+ 
+.iconHealt {
+    width: 20px;
+    height: 20px;
+}
+ 
+.iconComment {
+    width: 20px;
+    height: 20px;
+}
+ 
+.iconShare {
+    width: 30px;
+    height: 30px;
+}
+ 
+ 
+.post {
+    width: 550px;
+    height: 500px;
+    position: absolute;
+    right: 100px;
+    padding: 10px;
+    border-width: 2px;
+    border-color: rgb(205, 205, 205);
+    border-radius: 10px;
+    background-color: rgb(155, 238, 210);
+}
+ 
+.greenBackground{
+    background-color: rgb(84, 219, 174);
+    color: white;
+    border-radius: 5px;
+}
+ 
+.postFlexC {
+    display: flex;
+    align-items: center;
+}
+ 
+.size {
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    margin-right: 20px;
+}
+ 
+.time {
+    color: rgb(166, 166, 166);
+}
+ 
+.postText {
+    padding: 5px;
+    font-size: 18px;
+}
+ 
+.postSelect {
+    width: 120px;
+    height: 35px;
+    background-color: rgb(84, 219, 174);
+    padding-right: 15px;
+    padding-left: 15px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    border-width: 1px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+ 
+.postTexts {
+    width: auto;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(84, 219, 174);
+}

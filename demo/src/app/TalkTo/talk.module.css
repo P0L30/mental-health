@@ -1,0 +1,149 @@
+.body {
+    width: 100vw;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 100px;
+    padding: 200px;
+}
+ 
+.header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    background-color: white;
+    position: fixed;
+    padding-left: 200px;
+    padding-right: 100px;
+    border-bottom-width: 1px;
+    border-color: rgb(85, 208, 167);
+    top: 0px;
+}
+ 
+.logo {
+    font-size: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+ 
+.flex {
+    display: flex;
+}
+ 
+.NameFlex {
+    display: flex;
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: grey;
+}
+ 
+.PageName {
+    /* background-color: rgb(255, 0, 0); */
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: solid;
+}
+ 
+.PageName:hover {
+    text-decoration: underline rgb(85, 208, 167);
+}
+ 
+.PageNameT {
+    /* background-color: rgb(255, 0, 0); */
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(85, 208, 167);
+    text-decoration: underline rgb(85, 208, 167);
+}
+ 
+.columnBody{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* margin-right: 200px; */
+}
+ 
+.box {
+    display: flex;
+    background-color: rgb(113, 189, 162);
+    width: 1500px;
+    height: 350px;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    padding-left: 100px;
+}
+ 
+.img {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    background-color: rgb(255, 255, 255);
+    color: white;
+    display: flex;
+    border-color: white;
+    border-width: 3px;
+}
+ 
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+ 
+.TextColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 150px;
+}
+ 
+.text {
+    color: #000;
+    width: 900px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+ 
+.flexx {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    margin-right: 615px;
+    padding-bottom: 50px;
+}
+ 
+.numN {
+    color: black;
+}
+ 
+.number {
+    color: rgb(113, 189, 162);
+    font-size: 20px;
+    margin-left: 20px;
+}
