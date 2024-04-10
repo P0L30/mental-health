@@ -1,5 +1,5 @@
 // login-controller
-import { UserModel } from "../modules/user-module.js";
+import { UserModel } from "../module/user-module.js";
 import bcrypt from "bcrypt";
 
 export const login = async (req, res) => {

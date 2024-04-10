@@ -1,4 +1,5 @@
-import { UserModel } from "../modules/user-module.js";
+// user-controller
+import { UserModel } from "../module/user-module.js";
 import bcrypt from "bcrypt";
 
 export const users = [

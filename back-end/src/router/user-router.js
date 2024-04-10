@@ -1,3 +1,4 @@
+// user-router
 import express from "express";
 import { createUser, getAllUsers, getUser } from "../controller/user-controller.js";
 import { login } from "../controller/login-controller.js";

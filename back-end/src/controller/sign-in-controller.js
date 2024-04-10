@@ -1,4 +1,5 @@
-import { users } from "./user-controller.js";
+// sign-in-controller
+import { users } from "../user-controller.js";
 
 export const signIn = (req, res) => {
   const body = req.body;
@@ -12,7 +13,6 @@ export const signIn = (req, res) => {
 
   if (!existingUser) {
     const newUser = {
-      email: body.email,
       username: body.username,
       password: body.password,
     };
