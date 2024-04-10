@@ -3,8 +3,8 @@
     justify-content: center;
     align-items: center;
     position: fixed;
+    background-color: white;
 }
-
 .greenback {
     background-color: rgb(90, 181, 150);
     transform: rotate(45deg);
@@ -27,39 +27,51 @@
     border-radius: 20px;
 }
 .header{
-    height: 150px;
+    height: 120px;
     width: 2050px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-left: 200px;
     padding-right: 200px;
+    border-bottom-width: 1px;
+    border-color: rgb(85, 208, 167);
 }
 .logo{
     font-size: 25px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
 }
 .flex{
     display: flex;
 }
 .NameFlex{
     display: flex;
-    width: 1000px;
+    width: 800px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: grey;
-    margin-right: 50px;
+    margin-right: 150px;
 }
 .egister{
     width: 200px;
     height: 50px;
-    background-color: rgba(77, 189, 152, 0.846);
+    background-color: rgb(90, 181, 150);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     color: white;
+    transition: background-color 0.5s, font-size 0.5s;
+}
+.egister:hover{
+    background-color: rgb(102, 199, 166);
+    font-size: 18px;
 }
 .left{
     height: 850px;
@@ -75,30 +87,42 @@
     margin-bottom: 200px;
 }
 .Name{
-    font-size: 60px;
-    font-family: sans-serif;
+    font-size: 50px;
+    font-family:Arial, Helvetica, sans-serif ;
     color: rgb(35, 35, 35);
 }
 .bottomText{
-    font-size: 60px;
+    font-size: 50px;
     font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    color: black;
 }
 .text{
     font-size: 23px;
-    font-family: sans-serif;
+    font-family: "Gill Sans", sans-serif;
     color: rgb(159, 159, 159);
     margin-top: 20px;
+}
+.flexButton{
+    display: flex;
+    width: 500px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 6cqb;
 }
 .button{
     width: 200px;
     height: 50px;
-    background-color: rgba(77, 189, 152, 0.846);
+    background-color: rgb(90, 181, 150);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     color: white;
-    margin-top: 30px;
+    transition: background-color 0.5s, font-size 0.5s;
+}
+.button:hover{
+    background-color: rgb(102, 199, 166);
+    font-size: 18px;
 }
 .right{
     height: 850px;
@@ -116,18 +140,46 @@
 .O{
     width: 600px;
     height: 600px;
-    background-color: rgb(90, 181, 150);
+    background-color: rgb(73, 189, 150);
     border-radius: 1000px;
     z-index: 9;
     position: absolute;
     margin-bottom: 100px;
     margin-right: 100px;
 }
-.box{
-    width: 60vw;
-    height: 1050px;
-    background-color: rgb(255, 255, 255);
-    z-index: 1;
-    box-shadow: 2px 2px 5px 5px rgb(208, 216, 220);
-    border-radius: 20px;
+.doligon{
+    position: absolute;
+    z-index: 11;
+    top: 700px;
+    left: 100px;
+}
+.tseg{
+    position: absolute;
+    z-index: 11;
+    bottom: 200px;
+    right: 100px;
+}
+.ugalz{
+    position: absolute;
+    z-index: 11;
+    top: 200px;
+    right: 1000px;
+}
+.tsagirag{
+    position: absolute;
+    z-index: 11;
+    bottom: 400px;
+    right: 1000px;
+}
+.tseg{
+    position: absolute;
+    z-index: 11;
+    bottom: 200px;
+    right: 100px;
+}
+.tseg1{
+        position: absolute;
+        z-index: 11;
+        bottom: 150px;
+        right: 1300px;
 }
