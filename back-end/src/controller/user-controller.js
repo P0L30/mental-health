@@ -1,23 +1,14 @@
 import { UserModel } from "../modules/user-module.js";
 import bcrypt from "bcrypt";
 
-export const users = [
-  {
-    "id": "adjhgafkjhg",
-    "name": "Poleo",
-    "email": "batod@gmail.com",
-    "password": "adada"
-  }
-];
-
-export const getAllUsers = async (req, res) => {
-  const users_data = await UserModel.find({});
-  res.status(200).json({ users: users_data })
-}
+// export const getAllUsers = async (req, res) => {
+//   const users_data = await UserModel.find({});
+//   res.status(200).json({ users: users_data })
+// }
 
 export const getUser = (req, res) => {
-  const params = req.params;
-  const filteredUser = users.filter((cur) => cur.id === params.id);
+  const { _id } = req.params
+  const filteredUser = users.filter((cur) => cur.id === _id);
   if (filteredUser.length === 0) {
     res.status(405).json({ message: "User was not found" });
   } else {
@@ -27,17 +18,14 @@ export const getUser = (req, res) => {
 
 export const signIn = async (req, res) => {
   const body = req.body;
-  console.log(body)
   if (!body.email || !body.password) {
     res.status(400).json({ error: "Email and password are required" });
     return;
   }
-
   try {
     const existingUser = await UserModel.findOne({
       $or: [{ email: body.email }, { username: body.username }],
     });
-
     if (!existingUser) {
       const newUser = {
         email: body.email,

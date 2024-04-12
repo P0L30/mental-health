@@ -1,5 +1,4 @@
-import { postModel } from "../models/post-module.js";
-
+import { postModel, replyModel } from "../models/post-module.js";
 
 export const getAllPosts = async (req, res) => {
     try {
@@ -24,27 +23,13 @@ export const getPost = async (req, res) => {
     try {
         const post = await postModel.findById(req.params.id)
         if (!post) {
-            return res.status(404).json({ message: "Post not found" })
+            return res.status(405).json({ message: "Post not found" })
         }
         res.status(200).json({ message: "success", data: post })
     } catch (err) {
         res.status(500).json({ success: false, message: err.message })
     }
 }
-
-export const updatePost = async (req, res) => {
-    try {
-        const { comments } = req.body;
-        const post =await postModel.findByIdAndUpdate(req.params.id, { comments })
-        if(!post) {
-            res.status(404).json({success: false, message: "Post not found"})
-        }
-        res.status(200).json({ success: true, data: post })
-    } catch (err) {
-        res.status(500).json({ success: false, message: err.message })
-    }
-}
-
 
 export const deletePost = async (req, res) => {
     try {
@@ -58,3 +43,29 @@ export const deletePost = async (req, res) => {
     }
 }
 
+export const updatePost = async (req, res) => {
+    try {
+        const { comments } = req.body;
+        const post = await postModel.findByIdAndUpdate(req.params.id, { comments });
+        if (!post) {
+            res.status(404).json({ success: false, message: "Post not found" })
+        }
+        res.status(200).json({ success: true, data: post })
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message })
+    }
+}
+
+export const updateReply = async (req, res) => {
+    try {
+        const { comments } = req.params.id;
+        const reply = comments.replys
+        const data = await postModel.findByIdAndUpdate(req.params.id, { reply })
+        if (!data) {
+            res.status(404).json({ success: false, message: "Comment not found" });
+        }
+        res.status(200).json({ success: true, data: data })
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message })
+    }
+}
