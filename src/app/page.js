@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios"
 
 
-export function Postsections({ searchParams }) {
+export default function Postsections({ searchParams }) {
   // searchParams.id
   const PostSection = (text) => {
     const [tagValue, setTagValue] = useState([])
@@ -106,21 +106,6 @@ export function Postsections({ searchParams }) {
     setPost((prev) => ({ ...prev, tags: [...(prev.tags ?? [""]), e.target.value] }))
     console.log(post.tags)
   }
-
-
-  // router.push('/post'+'?id'+post._id)
-
-
-
-
-  const { data } = axios.post('http://localhost:', {
-    comments: postPrior.comments,
-    title: postArray.title,
-    description: postArray.description,
-    tags: postArray.tags
-  })
-
-
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -320,18 +305,20 @@ export function GetPost() {
     </main>
   )
 }
-export default function getSinglePost({ searchParams }) {
-  const [ post, setPost ] = useState({})
-  const id = useSearchParams().get('_id')
-  useEffect(() => {
-     GetPostById()
-     }, [])
-
+export function getSinglePost({ searchParams }) {
+  const [ post, setPost ] = useState({})  
+  const [ tags, setTags ] = useState([])
+  const url = useSearchParams()
+  const id = url.get('_id')
+  
   async function GetPostById() {
     const response = await axios.get(`http://localhost:5000/${id}`)
     setPost(response.data.data)
+    setTags(response.data.data.tags)
   }
-  console.log(post)
+   useEffect(() => {
+      GetPostById()
+      }, [])
 
   return (
     <main>
@@ -343,11 +330,77 @@ export default function getSinglePost({ searchParams }) {
         POst:
       </div>
 
-      <div>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 20, alignContent: "center"}}>
         <p>{post.title}</p>
         <p>{post.description}</p>
         <p></p>
+        {tags.map((text) => {
+          return (
+            <p>{text}</p>
+          )
+        })}
       </div>
     </main>
   )
-} 
+}
+
+
+export function comment({ searchParams }) {
+  const [ post, setPost ] = useState({})
+  const [ tag, setTag ] = useState([])
+  const [ comment, setComment ] = useState("")
+
+  const url = useSearchParams()
+  const id = url.get('_id')
+
+  async function getPost() {
+    const response = await axios.get(`http://localhost:5000/${id}`)
+    setPost(response.data.data)
+    setTag(response.data.data.tags)
+  }
+
+  useEffect(() => {
+    getPost()
+  },[])
+
+  console.log(comment)
+
+  return (
+    <main>
+      <div>Added comment section. Please put CSS in it</div>
+      <div>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 20, alignContent: "center"}}>
+        <div>
+          <p></p>
+          <p></p>
+        </div>
+
+        <div>
+          <p>{post.title}</p>
+          <p>{post.description}</p>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "row", gap: 10}}>
+          {tag.map((text) => {
+            return (
+              <p>{text}</p>
+            )
+          })}
+        </div>
+        <div style={{ display: "flex", flexDirection: "row", gap: 40}}>
+          <input placeholder="write your comment here!" style={{ width: 300, height: 30, color: "black"}} onChange={(e) => setComment(e.target.value)}/>
+          <button style={{ border: "1px, solid, white", width: 200, height: 30}}>post comment</button>
+        </div>
+              <select value={"NIggs d"}>
+                <option>b</option>
+                <option>v</option>
+                <option>c</option>
+                <option>a</option>
+
+              </select>
+        </div>
+      </div>
+    </main>
+  )
+
+}
