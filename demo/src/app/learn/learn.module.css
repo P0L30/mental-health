@@ -1,0 +1,298 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    background-color: rgb(162, 195, 255);
+}
+
+.header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding-left: 200px;
+    padding-right: 100px;
+    border-bottom-width: 1px;
+    border-color: rgb(85, 208, 167);
+}
+
+.logo {
+    font-size: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.flex {
+    display: flex;
+}
+
+.NameFlex {
+    display: flex;
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: grey;
+}
+
+.PageNameT {
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(85, 208, 167);
+    text-decoration: underline rgb(85, 208, 167);
+}
+
+
+.PageName {
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: solid;
+}
+
+.PageName:hover {
+    text-decoration: underline rgb(85, 208, 167);
+}
+
+.mdq{
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 300px;
+}
+
+
+
+.searchBox {
+    display: flex;
+    border-color: rgb(106, 225, 185);
+    border-width: 2px;
+    border-radius: 100px;
+    width: 524px;
+    height: 64px;
+}
+
+.searchInput {
+    width: 450px;
+    height: 60px;
+    position: sticky;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 2;
+    color: grey;
+}
+
+.searchButton {
+    width: 200px;
+    height: 60px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background-color: rgb(106, 225, 185);
+    z-index: 1;
+    position: absolute;
+    margin-left: 320px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.searchImg {
+    width: 40px;
+    height: 40px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 500px;
+    height: 300px;
+    background-color: rgb(164, 236, 212);
+    padding: 40px;
+    border-radius: 5px;
+    color: rgb(68, 68, 68);
+    margin-top: 20px;
+    gap: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+    .body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100vw;
+        background-color: rgb(162, 195, 255);
+    }
+    
+    .header {
+        height: 100px;
+        width: 950px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 20;
+        background-color: white;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-bottom-width: 1px;
+        border-color: rgb(85, 208, 167);
+    }
+    
+    .logo {
+        font-size: 25px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+    }
+    
+    .flex {
+        display: flex;
+    }
+    
+    .NameFlex {
+        display: flex;
+        width: 1200px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: grey;
+    }
+    
+    .PageNameT {
+        width: 200px;
+        height: 98px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(85, 208, 167);
+        text-decoration: underline rgb(85, 208, 167);
+    }
+    
+    
+    .PageName {
+        width: 200px;
+        height: 98px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: solid;
+    }
+    
+    .PageName:hover {
+        text-decoration: underline rgb(85, 208, 167);
+    }
+    
+    .center {
+        display: flex;
+        justify-content: center;
+        width: 950px;
+        height: 100vh;
+        background-color: rgb(255, 255, 255);
+    }
+    
+    .column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 250px;
+    }
+    
+    .search {
+        position: fixed;
+        top: 150px;
+    }
+    
+    .searchBox {
+        display: flex;
+        border-color: rgb(106, 225, 185);
+        border-width: 2px;
+        border-radius: 100px;
+        width: 324px;
+        height: 64px;
+    }
+    
+    .searchInput {
+        width: 250px;
+        height: 60px;
+        position: sticky;
+        border-radius: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        z-index: 2;
+        color: grey;
+    }
+    
+    .searchButton {
+        width: 200px;
+        height: 60px;
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+        background-color: rgb(106, 225, 185);
+        z-index: 1;
+        position: absolute;
+        margin-left: 120px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding-right: 20px;
+    }
+    
+    .searchImg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        width: 300px;
+        height: 300px;
+        background-color: rgb(164, 236, 212);
+        padding: 40px;
+        border-radius: 5px;
+        color: rgb(68, 68, 68);
+        font-size: 15px;
+    }
+  }

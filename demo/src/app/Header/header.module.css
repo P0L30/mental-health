@@ -1,0 +1,60 @@
+.header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding-left: 200px;
+    padding-right: 100px;
+    border-bottom-width: 1px;
+    border-color: rgb(85, 208, 167);
+}
+
+.logo {
+    font-size: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.NameFlex {
+    display: flex;
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: grey;
+}
+
+.PageName {
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: solid;
+}
+
+.PageName:hover {
+    text-decoration: underline rgb(85, 208, 167);
+}
+
+.PageNameT {
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(85, 208, 167);
+    text-decoration: underline rgb(85, 208, 167);
+}
