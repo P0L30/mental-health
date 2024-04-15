@@ -34,8 +34,8 @@ export default function Main() {
                                     <div className={style.PageName}>Talk To</div>
                                 </Link>
                                 <Link
-                                    href={"./Chat"}>
-                                    <div className={style.PageName}>Help ?</div>
+                                    href={"./blog"}>
+                                    <div className={style.PageName}>Blog</div>
                                 </Link>
                             </div>
                         </div>

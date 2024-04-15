@@ -1,0 +1,168 @@
+.body {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding-left: 200px;
+    padding-right: 100px;
+    border-bottom-width: 1px;
+    border-color: rgb(85, 208, 167);
+}
+
+.logo {
+    font-size: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.NameFlex {
+    display: flex;
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: grey;
+}
+
+.PageName {
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: solid;
+}
+
+.PageName:hover {
+    text-decoration: underline rgb(85, 208, 167);
+}
+
+.PageNameT {
+    width: 200px;
+    height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(85, 208, 167);
+    text-decoration: underline rgb(85, 208, 167);
+}
+
+.post {
+    width: 550px;
+    height: auto;
+    padding: 20px;
+    border-width: 2px;
+    border-color: rgb(205, 205, 205);
+    border-radius: 10px;
+    background-color: rgb(155, 238, 210);
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    flex-direction: column;
+}
+
+.greenBackground {
+    background-color: rgb(84, 219, 174);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.postFlexC {
+    display: flex;
+    align-items: center;
+}
+
+.size {
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    margin-right: 20px;
+}
+
+.time {
+    color: rgb(166, 166, 166);
+}
+
+.postText {
+    padding: 5px;
+    font-size: 18px;
+}
+
+.postSelect {
+    width: 120px;
+    height: 35px;
+    background-color: rgb(84, 219, 174);
+    padding-right: 15px;
+    padding-left: 15px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    border-width: 1px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.postTexts {
+    width: auto;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(84, 219, 174);
+}
+
+.box{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.postButton {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(94, 175, 148);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+    margin-top: 20px;
+    transition: background-color 0.5s, font-size 0.5s;
+    border-color: white;
+    border-width: 1px;
+}
+
+.postButton:hover {
+    background-color: rgb(102, 199, 166);
+    font-size: 18px;
+}

@@ -5,6 +5,7 @@ import axios from "axios"
 
 
 export function Postsections({ searchParams }) {
+  
   // searchParams.id
   const PostSection = (text) => {
     const [tagValue, setTagValue] = useState([])
@@ -264,6 +265,7 @@ export function Post() {
     </main>
   )
 }
+
 export function GetPost() {
   const router = useRouter()
   const [post, setPost] = useState([{}])
