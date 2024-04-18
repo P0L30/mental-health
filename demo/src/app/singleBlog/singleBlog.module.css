@@ -36,6 +36,10 @@
     margin-right: 20px;
 }
 
+.name {
+    color: black;
+}
+
 .time {
     color: grey;
 }
@@ -145,11 +149,16 @@
     border-radius: 100px;
 }
 
+.Name {
+    color: black;
+}
+
 .commentText {
     width: 600px;
     background-color: rgb(207, 255, 239);
     padding: 20px;
     border-radius: 10px;
+    color: black;
 }
 
 .CommentflexB {

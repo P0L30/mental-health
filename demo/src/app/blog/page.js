@@ -56,7 +56,7 @@ export default function blog() {
                             <div onClick={() => router.push("/singleBlog" + "?id="+ text._id)} className={style.main}>
                                 <div className={style.flexC}>
                                     <img src="coolDoctor.png" className={style.size}></img>
-                                    <div>coolDoctor</div>
+                                    <div className={style.Name}>coolDoctor</div>
                                     <div className={style.time}>・3h ago</div>
                                 </div>
                                 <div className={style.text}>{text.title}</div>
@@ -69,13 +69,15 @@ export default function blog() {
                                 <div className={style.flexB}>
                                     <button className={style.button}>
                                         <img src="healt.png" className={style.iconHealt}></img>
+                                        Like
                                     </button>
                                     <button className={style.button}>
                                         <img src="comment.png" className={style.iconComment}></img>
+                                        Comment
                                     </button>
                                     <button className={style.button}>
                                         <img src="share.png" className={style.iconShare}></img>
-                                        share</button>
+                                        Share</button>
                                 </div>
                             </div>
                         )

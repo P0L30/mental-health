@@ -1,45 +1,13 @@
 import Link from "next/link"
 import style from "./main.module.css"
- 
+import Header from "../Header/page"
+
 export default function Main() {
     return (
         <div>
             <div className={style.body}>
                 <div className={style.center}>
-                    <div className={style.header}>
-                        <div className={style.logo}>
-                            <img src="logo.png" className="h-24 w-24"></img>
-                            MHChat
-                        </div>
-                        <div className={style.flex}>
-                            <div className={style.NameFlex}>
-                                <Link
-                                    href={"./AboutUs"}>
-                                    <div className={style.PageName}>About Us</div>
-                                </Link>
-                                <Link
-                                    href={"./WhatToDo"}>
-                                    <div className={style.PageName}>What To Do</div>
-                                </Link>
-                                <Link
-                                    href={"./LearnAbout"}>
-                                    <div className={style.PageName}>Learn About</div>
-                                </Link>
-                                <Link
-                                    href={"./WhatToWatch"}>
-                                    <div className={style.PageName}>What To Watch</div>
-                                </Link>
-                                <Link
-                                    href={"./TalkTo"}>
-                                    <div className={style.PageName}>Talk To</div>
-                                </Link>
-                                <Link
-                                    href={"./blog"}>
-                                    <div className={style.PageName}>Blog</div>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
+                    <Header></Header>
                     <div className={style.box}>
                         <div className={style.left}>
                             <img src="image.png" className={style.image}></img>
@@ -61,12 +29,12 @@ export default function Main() {
                         </div>
                     </div>
                 </div>
- 
+
                 {/* page 2 */}
-                
- 
+
+
                 <div className={style.twoCenter}>
- 
+
                     <div className={style.widthflex}>
                         <div>
                             <img src="stres.png" className={style.img}></img>
@@ -78,9 +46,9 @@ export default function Main() {
                             </div>
                         </div>
                     </div>
- 
- 
- 
+
+
+
                     <div className={style.widthflex}>
                         <div className={style.textCenter}>
                             <div>
@@ -92,7 +60,7 @@ export default function Main() {
                             <img src="hrul.png" className={style.img}></img>
                         </div>
                     </div>
- 
+
                     <div className={style.widthflex}>
                         <div>
                             <img src="suns.png" className={style.img}></img>
@@ -104,7 +72,7 @@ export default function Main() {
                             </div>
                         </div>
                     </div>
- 
+
                     <div className={style.widthflex}>
                         <div className={style.textCenter}>
                             <div>
@@ -116,7 +84,7 @@ export default function Main() {
                             <img src="eating.png" className={style.img}></img>
                         </div>
                     </div>
- 
+
                     <div className={style.widthflex}>
                         <div>
                             <img src="sna-aldh.png" className={style.img}></img>
@@ -128,7 +96,7 @@ export default function Main() {
                             </div>
                         </div>
                     </div>
- 
+
                     <div className={style.widthflex}>
                         <div className={style.textCenter}>
                             <div>
@@ -140,7 +108,7 @@ export default function Main() {
                             <img src="NDD.png" className={style.img}></img>
                         </div>
                     </div>
- 
+
                     <div className={style.widthflex}>
                         <div>
                             <img src="eej-uurlw.png" className={style.img}></img>
@@ -152,7 +120,7 @@ export default function Main() {
                             </div>
                         </div>
                     </div>
- 
+
                     <div className={style.widthflex}>
                         <div className={style.textCenter}>
                             <div>
@@ -164,9 +132,9 @@ export default function Main() {
                             <img src="gunig.png" className={style.img}></img>
                         </div>
                     </div>
- 
+
                     <div className={style.white}></div>
- 
+
                 </div>
             </div>
         </div>

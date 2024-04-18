@@ -1,7 +1,21 @@
+"use client"
+
 import style from "./header.module.css";
 import Link from "next/link";
 
+import { useRouter } from 'next/navigation'
+
+
+//   return (
+//     <button type="button" onClick={() => router.push('/about')}>
+//       Click me
+//     </button>
+//   )
+
 export default function Header() {
+
+    const router = useRouter()
+
     return (
         <div>
             <div className={style.header}>
@@ -11,16 +25,15 @@ export default function Header() {
                 </div>
                 <div className={style.flex}>
                     <div className={style.NameFlex}>
-                        <Link
-                            href={"./about"}>
+                        <button type="button" onClick={() => router.push('/AboutUs')}>
                             <div className={style.PageName}>About Us</div>
-                        </Link>
+                        </button>
                         <Link
-                            href={"./learn"}>
+                            href={"./LearnAbout"}>
                             <div className={style.PageName}>Learn About</div>
                         </Link>
                         <Link
-                            href={"./watch"}>
+                            href={"./WhatToWatch"}>
                             <div className={style.PageName}>What To Watch</div>
                         </Link>
                         <Link

@@ -8,6 +8,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 
 export default function SingleBlog({ searchParams }) {
     const [post, setPost] = useState({})
+    const [ isClicked, setIsClicked ] = useState(false)
     const router = useRouter();
     const id = useSearchParams().get('id')
 
@@ -28,7 +29,7 @@ export default function SingleBlog({ searchParams }) {
                     className={style.main}>
                     <div className={style.flexC}>
                         <img src="coolDoctor.png" className={style.size}></img>
-                        <div>coolDoctor</div>
+                        <div className={style.name}>CoolDoctor</div>
                         <div className={style.time}>・3h ago</div>
                     </div>
 
@@ -38,7 +39,15 @@ export default function SingleBlog({ searchParams }) {
 
                     <div className={style.flexB}>
                         <button className={style.button}>
-                            <img src="healt.png" className={style.iconHealt} ></img>
+                            <div>
+                            //     className="side"
+                            //     style={{
+                            //         backgroundColor: i + 1 === diceNumber ? "health.png" : "blackHealth",
+                            //     }}
+                                // {isClicked ? style={{ fill: "white"}} : style={{fill: "green"}}}
+
+                            </div>
+                            <img src="health.png" className={style.iconHealt} ></img>
                             Like
                         </button>
                         <button className={style.button}>
@@ -50,8 +59,10 @@ export default function SingleBlog({ searchParams }) {
                             Share</button>
                     </div>
                 </div>
-                <div className={style.comment}>
 
+                {/* comment */}
+
+                <div className={style.comment}>
                     <div className={style.commentFlex}>
                         <div className={style.flex}>
                             <img src="coolDoctor.png" className={style.coolDoctorImg}></img>
@@ -63,7 +74,7 @@ export default function SingleBlog({ searchParams }) {
 
                         <div className={style.CommentflexB}>
                             <button className={style.button}>
-                                <img src="healt.png" className={style.iconHealt}></img>
+                                <img src="health.png" className={style.iconHealt}></img>
                                 Like
                             </button>
                             <button className={style.buttonShare}>
@@ -73,6 +84,7 @@ export default function SingleBlog({ searchParams }) {
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     )
