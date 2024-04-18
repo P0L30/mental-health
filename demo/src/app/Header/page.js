@@ -12,7 +12,7 @@ export default function Header() {
                 <div className={style.flex}>
                     <div className={style.NameFlex}>
                         <Link
-                            href={"./about"}>
+                            href={"./AboutUs"}>
                             <div className={style.PageName}>About Us</div>
                         </Link>
                         <Link
@@ -20,7 +20,7 @@ export default function Header() {
                             <div className={style.PageName}>Learn About</div>
                         </Link>
                         <Link
-                            href={"./watch"}>
+                            href={"./WhereToWatch"}>
                             <div className={style.PageName}>What To Watch</div>
                         </Link>
                         <Link

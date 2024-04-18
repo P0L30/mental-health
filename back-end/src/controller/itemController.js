@@ -1,4 +1,4 @@
-import Item from '../module/Item.js';
+import Item from '../module/Item-module.js';
 
 export const addItem = async (req, res) => {
   const { title, description, solution, imageUrl } = req.body;

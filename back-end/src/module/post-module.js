@@ -1,19 +1,19 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-
-const replySchema =new mongoose.Schema({
+const replySchema = new Schema({
     likes: Number,
     description: String,
     owner: String
 })
-const commentSchema  = new mongoose.Schema({
+
+const commentSchema = new Schema({
     likes: Number,
     description: String,
     owner: String,
-    replys: [replySchema]
+    replys: [{ type: Schema.Types.ObjectId, ref: 'Reply' }]
 })
 
-const postSchema = new mongoose.Schema({
+const postSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -21,12 +21,12 @@ const postSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
-   },
-    comments: [commentSchema],
+    },
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
     tags: [String]
-
-   
 });
 
 export const postModel = mongoose.model("Post", postSchema)
+export const commentModel = mongoose.model("Comment", commentSchema)
+export const replyModel = mongoose.model("Reply", replySchema)
 
