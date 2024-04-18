@@ -5,7 +5,7 @@ import axios from "axios"
 
 
 export function Postsections({ searchParams }) {
-  
+
   // searchParams.id
   const PostSection = (text) => {
     const [tagValue, setTagValue] = useState([])
@@ -61,7 +61,7 @@ export function Postsections({ searchParams }) {
   const myData = ["Deppression", "Anxiety disorder", "Schizophrenia", "Eating disorder", "PTSD", "Autism", "ADHD", "Insomnia", "Bipolar Disorder"]
   const router = useRouter()
   const [com, setCom] = useState("")
-  const [post, setPost] = useState({})
+  const [post, setPost] = useState({ title: "", description: "", tags: [], comments: []})
   const [postArray, setPostArray] = useState([])
   function handleTitle(e) {
     setPost((prev) => ({ ...prev, title: e.target.value }))
@@ -103,6 +103,8 @@ export function Postsections({ searchParams }) {
   }
 
   function giveTags(e) {
+    if(e.target.value === tags) {
+    }
     console.log(e.target.value)
     setPost((prev) => ({ ...prev, tags: [...(prev.tags ?? [""]), e.target.value] }))
     console.log(post.tags)
@@ -114,7 +116,7 @@ export function Postsections({ searchParams }) {
 
 
 
-  const { data } = axios.post('http://localhost:', {
+  const { data } = axios.post('http://localhost:5000', {
     comments: postPrior.comments,
     title: postArray.title,
     description: postArray.description,
@@ -353,3 +355,4 @@ export default function getSinglePost({ searchParams }) {
     </main>
   )
 } 
+  
