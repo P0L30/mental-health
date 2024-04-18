@@ -20,7 +20,7 @@ export default function Header() {
                             <div className={style.PageName}>Learn About</div>
                         </Link>
                         <Link
-                            href={"./WhereToWatch"}>
+                            href={"./WhatToWatch"}>
                             <div className={style.PageName}>What To Watch</div>
                         </Link>
                         <Link
