@@ -1,0 +1,177 @@
+.body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    width: 750px;
+    height: auto;
+    background-color: rgb(207, 255, 239);
+    padding-top: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    z-index: 2;
+    margin-top: 30px;
+}
+
+.flexC {
+    display: flex;
+    align-items: center;
+}
+
+.size {
+    width: 55px;
+    height: 55px;
+    border-radius: 100px;
+    margin-right: 20px;
+}
+
+.time {
+    color: grey;
+}
+
+.title {
+    padding: 5px;
+    font-size: 18px;
+}
+
+.select {
+    width: 120px;
+    height: 35px;
+    background-color: rgb(84, 219, 174);
+    padding-right: 15px;
+    padding-left: 15px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    border-width: 1px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.text {
+    width: auto;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.flexB {
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.button {
+    width: auto;
+    height: 35px;
+    background-color: rgb(84, 219, 174);
+    padding-right: 15px;
+    padding-left: 15px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    border-width: 1px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.iconHealt {
+    width: 20px;
+    height: 20px;
+}
+
+.iconComment {
+    width: 20px;
+    height: 20px;
+}
+
+.iconShare {
+    width: 30px;
+    height: 30px;
+}
+
+.comment {
+    width: 700px;
+    height: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border-color: rgb(84, 219, 174);
+    border-width: 3px;
+    border-radius: 15px;
+}
+
+.commentFlex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 600px;
+}
+
+
+.coolDoctorImg {
+    width: 35px;
+    height: 35px;
+    border-color: rgb(84, 219, 174);
+    border-width: 2px;
+    border-radius: 100px;
+}
+
+.commentText {
+    width: 600px;
+    background-color: rgb(207, 255, 239);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.CommentflexB {
+    width: 600px;
+    display: flex;
+    justify-content: start;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.buttonShare {
+    width: auto;
+    height: 35px;
+    background-color: rgb(84, 219, 174);
+    padding-right: 15px;
+    padding-left: 15px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    border-width: 1px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

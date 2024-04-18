@@ -1,4 +1,17 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
+
+
+const replySchema =new mongoose.Schema({
+    likes: Number,
+    description: String,
+    owner: String
+})
+const commentSchema  = new mongoose.Schema({
+    likes: Number,
+    description: String,
+    owner: String,
+    replys: [replySchema]
+})
 
 const postSchema = new mongoose.Schema({
     title: {
@@ -9,17 +22,9 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
    },
-   comments: [{
-    likes: Number,
-    description: String,
-    owner: String,
-    replys: [{
-        likes: Number,
-        description: String,
-        owner: String
-    }]
-   }],
-   tags: [String]
+    comments: [commentSchema],
+    tags: [String]
+
    
 });
 

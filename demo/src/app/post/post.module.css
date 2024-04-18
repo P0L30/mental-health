@@ -108,6 +108,9 @@
 .postText {
     padding: 5px;
     font-size: 18px;
+    color: black;
+    background-color: rgb(84, 219, 174);
+    width: 22  vw;
 }
 
 .postSelect {

@@ -2,12 +2,31 @@
 
 import Link from "next/link";
 import style from "./blog.module.css"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "../Header/page";
-
+import axios from 'axios';
+import { useRouter } from "next/navigation"
 
 export default function blog() {
+    const router = useRouter()
+    const [post, setPost] = useState([{}])
+    const [ tags, setTags ] = useState([])
+    const [ comment, setComment ] = useState([])
 
+    async function fetchPost() {
+        const response = await axios.get("http://localhost:5000/getPost");
+        setPost(response.data.Post)
+        setTags(response.data.Post.tags ?? []);
+        setComment(response.data.Post.comments)
+    }
+
+
+    useEffect(() => {
+        fetchPost()
+    }, [])
+
+    console.log(comment)
+    console.log(post)
     return (
         <div className={style.body}>
             <Header></Header>
@@ -32,205 +51,40 @@ export default function blog() {
                     </div>
                 </div>
                 <div className={style.mid}>
-                    <div className={style.main}>
-                        <div className={style.flexC}>
-                            <img src="coolDoctor.png" className={style.size}></img>
-                            <div>coolDoctor</div>
-                            <div className={style.time}>・3h ago</div>
-                        </div>
-                        <div className={style.text}>Practice relaxation techniques such as deep breathing, progressive muscle relaxation, or mindfulness meditation.</div>
-                        <select className={style.select}>
-                            <option>select</option>
-                            <option>asfs</option>
-                            <option>dfghdfh</option>
-                            <option>dfgh</option>
-                        </select>
-                        <div className={style.texts}>In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.
-                            In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.</div>
-                        <div className={style.flexB}>
-                            <button className={style.button}>
-                                <img src="healt.png" className={style.iconHealt}></img>
-                                62.3k</button>
-                            <button className={style.button}>
-                                <img src="comment.png" className={style.iconComment}></img>
-                                3k</button>
-                            <button className={style.button}>
-                                <img src="share.png" className={style.iconShare}></img>
-                                share</button>
-                        </div>
-                    </div>
-
-                    <div className={style.main}>
-                        <div className={style.flexC}>
-                            <img src="coolDoctor.png" className={style.size}></img>
-                            <div>coolDoctor</div>
-                            <div className={style.time}>・3h ago</div>
-                        </div>
-                        <div className={style.text}>Practice relaxation techniques such as deep breathing, progressive muscle relaxation, or mindfulness meditation.</div>
-                        <select className={style.select}>
-                            <option>select</option>
-                            <option>asfs</option>
-                            <option>dfghdfh</option>
-                            <option>dfgh</option>
-                        </select>
-                        <div className={style.texts}>In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.
-                            In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.</div>
-                        <div className={style.flexB}>
-                            <button className={style.button}>
-                                <img src="healt.png" className={style.iconHealt}></img>
-                                62.3k</button>
-                            <button className={style.button}>
-                                <img src="comment.png" className={style.iconComment}></img>
-                                3k</button>
-                            <button className={style.button}>
-                                <img src="share.png" className={style.iconShare}></img>
-                                share</button>
-                        </div>
-                    </div>
-
-                    <div className={style.main}>
-                        <div className={style.flexC}>
-                            <img src="coolDoctor.png" className={style.size}></img>
-                            <div>coolDoctor</div>
-                            <div className={style.time}>・3h ago</div>
-                        </div>
-                        <div className={style.text}>Practice relaxation techniques such as deep breathing, progressive muscle relaxation, or mindfulness meditation.</div>
-                        <select className={style.select}>
-                            <option>select</option>
-                            <option>asfs</option>
-                            <option>dfghdfh</option>
-                            <option>dfgh</option>
-                        </select>
-                        <div className={style.texts}>In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.
-                            In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.</div>
-                        <div className={style.flexB}>
-                            <button className={style.button}>
-                                <img src="healt.png" className={style.iconHealt}></img>
-                                62.3k</button>
-                            <button className={style.button}>
-                                <img src="comment.png" className={style.iconComment}></img>
-                                3k</button>
-                            <button className={style.button}>
-                                <img src="share.png" className={style.iconShare}></img>
-                                share</button>
-                        </div>
-                    </div>
+                    {post.map((text) => {
+                        return (
+                            <div onClick={() => router.push("/singleBlog" + "?id="+ text._id)} className={style.main}>
+                                <div className={style.flexC}>
+                                    <img src="coolDoctor.png" className={style.size}></img>
+                                    <div>coolDoctor</div>
+                                    <div className={style.time}>・3h ago</div>
+                                </div>
+                                <div className={style.text}>{text.title}</div>
+                                {tags.map((text) => {
+                                    return (
+                                        <p>{text}</p>
+                                    )
+                                })}
+                                <div className={style.texts}>{text.description}</div>
+                                <div className={style.flexB}>
+                                    <button className={style.button}>
+                                        <img src="healt.png" className={style.iconHealt}></img>
+                                    </button>
+                                    <button className={style.button}>
+                                        <img src="comment.png" className={style.iconComment}></img>
+                                    </button>
+                                    <button className={style.button}>
+                                        <img src="share.png" className={style.iconShare}></img>
+                                        share</button>
+                                </div>
+                            </div>
+                        )
+                    })}
 
 
-                    <div className={style.main}>
-                        <div className={style.flexC}>
-                            <img src="coolDoctor.png" className={style.size}></img>
-                            <div>coolDoctor</div>
-                            <div className={style.time}>・3h ago</div>
-                        </div>
-                        <div className={style.text}>Practice relaxation techniques such as deep breathing, progressive muscle relaxation, or mindfulness meditation.</div>
-                        <select className={style.select}>
-                            <option>select</option>
-                            <option>asfs</option>
-                            <option>dfghdfh</option>
-                            <option>dfgh</option>
-                        </select>
-                        <div className={style.texts}>In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.
-                            In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.</div>
-                        <div className={style.flexB}>
-                            <button className={style.button}>
-                                <img src="healt.png" className={style.iconHealt}></img>
-                                62.3k</button>
-                            <button className={style.button}>
-                                <img src="comment.png" className={style.iconComment}></img>
-                                3k</button>
-                            <button className={style.button}>
-                                <img src="share.png" className={style.iconShare}></img>
-                                share</button>
-                        </div>
-                    </div>
 
-                    <div className={style.main}>
-                        <div className={style.flexC}>
-                            <img src="coolDoctor.png" className={style.size}></img>
-                            <div>coolDoctor</div>
-                            <div className={style.time}>・3h ago</div>
-                        </div>
-                        <div className={style.text}>Practice relaxation techniques such as deep breathing, progressive muscle relaxation, or mindfulness meditation.</div>
-                        <select className={style.select}>
-                            <option>select</option>
-                            <option>asfs</option>
-                            <option>dfghdfh</option>
-                            <option>dfgh</option>
-                        </select>
-                        <div className={style.texts}>In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.
-                            In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.</div>
-                        <div className={style.flexB}>
-                            <button className={style.button}>
-                                <img src="healt.png" className={style.iconHealt}></img>
-                                62.3k</button>
-                            <button className={style.button}>
-                                <img src="comment.png" className={style.iconComment}></img>
-                                3k</button>
-                            <button className={style.button}>
-                                <img src="share.png" className={style.iconShare}></img>
-                                share</button>
-                        </div>
-                    </div>
 
-                    <div className={style.main}>
-                        <div className={style.flexC}>
-                            <img src="coolDoctor.png" className={style.size}></img>
-                            <div>coolDoctor</div>
-                            <div className={style.time}>・3h ago</div>
-                        </div>
-                        <div className={style.text}>Practice relaxation techniques such as deep breathing, progressive muscle relaxation, or mindfulness meditation.</div>
-                        <select className={style.select}>
-                            <option>select</option>
-                            <option>asfs</option>
-                            <option>dfghdfh</option>
-                            <option>dfgh</option>
-                        </select>
-                        <div className={style.texts}>In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.
-                            In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.</div>
-                        <div className={style.flexB}>
-                            <button className={style.button}>
-                                <img src="healt.png" className={style.iconHealt}></img>
-                                62.3k</button>
-                            <button className={style.button}>
-                                <img src="comment.png" className={style.iconComment}></img>
-                                3k</button>
-                            <button className={style.button}>
-                                <img src="share.png" className={style.iconShare}></img>
-                                share</button>
-                        </div>
-                    </div>
-
-                    <div className={style.main}>
-                        <div className={style.flexC}>
-                            <img src="coolDoctor.png" className={style.size}></img>
-                            <div>coolDoctor</div>
-                            <div className={style.time}>・3h ago</div>
-                        </div>
-                        <div className={style.text}>Practice relaxation techniques such as deep breathing, progressive muscle relaxation, or mindfulness meditation.</div>
-                        <select className={style.select}>
-                            <option>select</option>
-                            <option>asfs</option>
-                            <option>dfghdfh</option>
-                            <option>dfgh</option>
-                        </select>
-                        <div className={style.texts}>In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.
-                            In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.</div>
-                        <div className={style.flexB}>
-                            <button className={style.button}>
-                                <img src="healt.png" className={style.iconHealt}></img>
-                                62.3k</button>
-                            <button className={style.button}>
-                                <img src="comment.png" className={style.iconComment}></img>
-                                3k</button>
-                            <button className={style.button}>
-                                <img src="share.png" className={style.iconShare}></img>
-                                share</button>
-                        </div>
-                    </div>
-                </div>
-
-                {/* <div className={style.post}>
+                    {/* <div className={style.post}>
                     <div className={style.postMain}>
                         <div className={style.greenBackground}>
                             <div className={style.postFlexC}>
@@ -250,11 +104,12 @@ export default function blog() {
                             In 2019, 301 million people, including 58 million children, had anxiety disorders marked by excessive fear, worry, and related behaviors. Disorders like generalized anxiety, panic, social anxiety, and separation anxiety were prevalent. Effective psychological treatments exist, with medication considered based on age and severity.</div>
                     </div>
                 </div> */}
-                <Link
-                    href={"./post"}>
-                    <button onMouseOver={() => console.log('hello')} onMouseOut={() => console.log('out')} className={style.postButton}>Create post</button>
-                </Link>
-                {/* { && <div>asdf</div>} */}
+                    <Link
+                        href={"./post"}>
+                        <button onMouseOver={() => console.log('hello')} onMouseOut={() => console.log('out')} className={style.postButton}>Create post</button>
+                    </Link>
+                    {/* { && <div>asdf</div>} */}
+                </div>
             </div>
         </div>
     )
