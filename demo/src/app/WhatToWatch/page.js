@@ -2,6 +2,7 @@
 import Link from "next/link"
 import style from "./main.module.css"
 import { router } from "next"
+import Header from "../Header/page"
 
 export default function Main() {
 
@@ -53,172 +54,162 @@ export default function Main() {
         { url: 'https://www.youtube.com/watch?v=KaZTnlFJGMY', image: 'https://i.ytimg.com/vi/KaZTnlFJGMY/mqdefault.jpg', title: 'New treatments for severe depression' },
         { url: 'https://www.youtube.com/watch?v=z-IR48Mb3W0', image: 'https://i.ytimg.com/vi/z-IR48Mb3W0/mqdefault.jpg', title: 'What is depression?' },
     ];
+
     return (
-            <div className={style.body}>
-                <div className={style.center}>
-                    <div className={style.header}>
-                        <div className={style.logo}>
-                            <img src="logo.png" className="h-24 w-24"></img>
-                            MHChat
-                        </div>
-                        <div className={style.flex}>
-                            <div className={style.NameFlex}>
-                                <Link
-                                    href={"./AboutUs"}>
-                                    <div className={style.PageName}>About Us</div>
-                                </Link>
-                                <Link
-                                    href={"./LearnAbout"}>
-                                    <div className={style.PageName}>Learn About</div>
-                                </Link>
-                                <Link
-                                    href={"./WhatToWatch"}>
-                                    <div className={style.PageName}>What To Watch</div>
-                                </Link>
-                                <Link
-                                    href={"./TalkTo"}>
-                                    <div className={style.PageName}>Talk To</div>
-                                </Link>
-                                <Link
-                                    href={"./Chat"}>
-                                    <div className={style.PageName}>Chat</div>
-                                </Link>
+        <div className={style.body}>
+            <div className={style.center}>
+                <Header></Header>
+                <div className={style.box}>
+                    <div className={style.left}>
+                        <img src="image.png" className={style.image}></img>
+                        <div className={style.O}></div>
+                        <img src="doligon.png" className={style.doligon}></img>
+                        <img src="tseg.png" className={style.tseg}></img>
+                        <img src="ugalz.png" className={style.ugalz}></img>
+                        <img src="tsagirag.png" className={style.tsagirag}></img>
+                        <img src="tseg.png" className={style.tseg1}></img>
+                    </div>
+                    <div className={style.right}>
+                        <div className={style.column}>
+                            <div className={style.Name}>
+                                Welcome
                             </div>
-                        </div>
-                    </div>
-                    <div className={style.box}>
-                        <div className={style.left}>
-                            <img src="image.png" className={style.image}></img>
-                            <div className={style.O}></div>
-                            <img src="doligon.png" className={style.doligon}></img>
-                            <img src="tseg.png" className={style.tseg}></img>
-                            <img src="ugalz.png" className={style.ugalz}></img>
-                            <img src="tsagirag.png" className={style.tsagirag}></img>
-                            <img src="tseg.png" className={style.tseg1}></img>
-                        </div>
-                        <div className={style.right}>
-                            <div className={style.column}>
-                                <div className={style.Name}>
-                                    Welcome
-                                </div>
-                                <div className={style.bottomText}>To MHChat</div>
-                                <div className={style.text}>This site was made for people to talk and learn about their mental health issues. So seek out help from others who are in the same place as you and talk to our professional psychologist and get better. </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-white h-auto w-screen">
-                    {/* Anxiety disorder */}
-                    <div style={{margin: "10px", display: 'flex', gap: "20px", flexDirection: "column"}}>
-                    <p style={{fontFamily:'sans-serif', fontSize: "40px",  color: "rgba(77, 189, 152, 0.846)",}}>Anxiety disorder</p>
-                    <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
-                        {videoLinks.map((video, index) => (
-                            <button onClick={() => router.push(video.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
-                                <img src={video.image} style={{ borderRadius: "12px" }}></img>
-                                <p style={{ fontFamily: "sans-serif", }}>{video.title}</p>
-                            </button>
-                        ))}
-                    </div>
-                    </div>
-                    {/* Bipolar Disorder */}
-                    <div style={{margin: "10px", borderColor: "lightgray", borderTopWidth: "3px",}}>
-                    <div>
-                    <p style={{fontFamily:'sans-serif', fontSize: "40px",  color: "rgba(77, 189, 152, 0.846)"}}>Bipolar Disorder</p>
-                    </div>
-                        <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
-                        {biopolarVid.map((biopolar, index) => (
-                            <button onClick={() => router.push(biopolar.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
-                                <img src={biopolar.image} style={{ borderRadius: "12px" }}></img>
-                                <p style={{ fontFamily: "sans-serif", }}>{biopolar.title}</p>
-                            </button>
-                        ))}
-                        </div>
-                    </div>
-                    {/* Schizophrenia */}
-                    <div style={{margin: "10px", borderColor: "lightgray", borderTopWidth: "3px",}}>
-                    <div>
-                    <p style={{fontFamily:'sans-serif', fontSize: "40px",  color: "rgba(77, 189, 152, 0.846)"}}>Schizophrenia</p>
-                    </div>
-                        <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
-                        {schizophreniaVid.map((schizophrenia, index) => (
-                            <button onClick={() => router.push(schizophrenia.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
-                                <img src={schizophrenia.image} style={{ borderRadius: "12px" }}></img>
-                                <p style={{ fontFamily: "sans-serif", }}>{schizophrenia.title}</p>
-                            </button>
-                        ))}
-                        </div>
-                    </div>
-                    {/* Eating Disorders */}
-                    <div style={{margin: "10px", borderColor: "lightgray", borderTopWidth: "3px",}}>
-                    <div>
-                    <p style={{fontFamily:'sans-serif', fontSize: "40px",  color: "rgba(77, 189, 152, 0.846)"}}>Eating Disorders</p>
-                    </div>
-                        <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
-                        {eatingDisordersVid.map((schizophrenia, index) => (
-                            <button onClick={() => router.push(schizophrenia.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
-                                <img src={schizophrenia.image} style={{ borderRadius: "12px" }}></img>
-                                <p style={{ fontFamily: "sans-serif", }}>{schizophrenia.title}</p>
-                            </button>
-                        ))}
-                        </div>
-                    </div>
-                    {/* PTSD */}
-                    <div style={{margin: "10px", borderColor: "lightgray", borderTopWidth: "3px",}}>
-                    <div>
-                    <p style={{fontFamily:'sans-serif', fontSize: "40px",  color: "rgba(77, 189, 152, 0.846)"}}>PTSD</p>
-                    </div>
-                        <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
-                        {ptsdVid.map((ptsd, index) => (
-                            <button onClick={() => router.push(ptsd.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
-                                <img src={ptsd.image} style={{ borderRadius: "12px" }}></img>
-                                <p style={{ fontFamily: "sans-serif", }}>{ptsd.title}</p>
-                            </button>
-                        ))}
-                        </div>
-                    </div>
-                    {/* neurodevelopmental disorders */}
-                    <div style={{margin: "10px", borderColor: "lightgray", borderTopWidth: "3px",}}>
-                    <div>
-                    <p style={{fontFamily:'sans-serif', fontSize: "40px",  color: "rgba(77, 189, 152, 0.846)"}}>NDD</p>
-                    </div>
-                        <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
-                        {nddVid.map((ndd, index) => (
-                            <button onClick={() => router.push(ndd.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
-                                <img src={ndd.image} style={{ borderRadius: "12px" }}></img>
-                                <p style={{ fontFamily: "sans-serif", }}>{ndd.title}</p>
-                            </button>
-                        ))}
-                        </div>
-                    </div>
-                    {/* DBDD */}
-                    <div style={{margin: "10px", borderColor: "lightgray", borderTopWidth: "3px",}}>
-                    <div>
-                    <p style={{fontFamily:'sans-serif', fontSize: "40px",  color: "rgba(77, 189, 152, 0.846)"}}>DBDD</p>
-                    </div>
-                        <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
-                        {dbddVid.map((dbdd, index) => (
-                            <button onClick={() => router.push(dbdd.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
-                                <img src={dbdd.image} style={{ borderRadius: "12px" }}></img>
-                                <p style={{ fontFamily: "sans-serif", }}>{dbdd.title}</p>
-                            </button>
-                        ))}
-                        </div>
-                    </div>
-                    {/* Depression */}
-                    <div style={{margin: "10px", borderColor: "lightgray", borderTopWidth: "3px",}}>
-                    <div>
-                    <p style={{fontFamily:'sans-serif', fontSize: "40px",  color: "rgba(77, 189, 152, 0.846)"}}>Depression </p>
-                    </div>
-                        <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
-                        {depressionVid.map((depression , index) => (
-                            <button onClick={() => router.push(depression.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
-                                <img src={depression.image} style={{ borderRadius: "12px" }}></img>
-                                <p style={{ fontFamily: "sans-serif", }}>{depression.title}</p>
-                            </button>
-                        ))}
+                            <div className={style.bottomText}>To MHChat</div>
+                            <div className={style.text}>This site was made for people to talk and learn about their mental health issues. So seek out help from others who are in the same place as you and talk to our professional psychologist and get better. </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div className="bg-white h-auto w-screen">
+
+                {/* Anxiety disorder */}
+                <div style={{ margin: "10px", borderColor: "lightgray", borderTopWidth: "3px", paddingBottom: "40px" }}></div>
+                <div style={{ margin: "10px", display: 'flex', gap: "20px", flexDirection: "column" }}>
+                    <p style={{ fontFamily: 'sans-serif', fontSize: "40px", color: "rgba(77, 189, 152, 0.846)", marginTop: "30px", marginBottom: "30px", marginLeft: "115px" }}>Anxiety disorder</p>
+                    <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
+                        {videoLinks.map((video, index) => (
+                            <button onClick={() => router.push(video.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
+                                <img src={video.image} style={{ borderRadius: "12px", borderWidth: "4px", borderColor: "rgb(85, 208, 167)" }}></img>
+                                <p style={{ fontFamily: "sans-serif", color: "black" }}>{video.title}</p>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Bipolar Disorder */}
+
+                <div style={{ margin: "10px", borderColor: "lightgray", borderTopWidth: "3px", paddingBottom: "40px" }}>
+                    <div>
+                        <p style={{ fontFamily: 'sans-serif', fontSize: "40px", color: "rgba(77, 189, 152, 0.846)", marginTop: "30px", marginBottom: "30px", marginLeft: "115px" }}>Bipolar Disorder</p>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
+                        {biopolarVid.map((biopolar, index) => (
+                            <button onClick={() => router.push(biopolar.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
+                                <img src={biopolar.image} style={{ borderRadius: "12px", borderWidth: "4px", borderColor: "rgb(85, 208, 167)"}}></img>
+                                <p style={{ fontFamily: "sans-serif", color: "black" }}>{biopolar.title}</p>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Schizophrenia */}
+
+                <div style={{ margin: "10px", borderColor: "lightgray", borderTopWidth: "3px", paddingBottom: "40px" }}>
+                    <div>
+                        <p style={{ fontFamily: 'sans-serif', fontSize: "40px", color: "rgba(77, 189, 152, 0.846)", marginTop: "30px", marginBottom: "30px", marginLeft: "115px" }}>Schizophrenia</p>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
+                        {schizophreniaVid.map((schizophrenia, index) => (
+                            <button onClick={() => router.push(schizophrenia.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
+                                <img src={schizophrenia.image} style={{ borderRadius: "12px", borderWidth: "4px", borderColor: "rgb(85, 208, 167)"}}></img>
+                                <p style={{ fontFamily: "sans-serif", color: "black" }}>{schizophrenia.title}</p>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Eating Disorders */}
+
+                <div style={{ margin: "10px", borderColor: "lightgray", borderTopWidth: "3px", paddingBottom: "40px" }}>
+                    <div>
+                        <p style={{ fontFamily: 'sans-serif', fontSize: "40px", color: "rgba(77, 189, 152, 0.846)", marginTop: "30px", marginBottom: "30px", marginLeft: "115px" }}>Eating Disorders</p>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
+                        {eatingDisordersVid.map((schizophrenia, index) => (
+                            <button onClick={() => router.push(schizophrenia.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
+                                <img src={schizophrenia.image} style={{ borderRadius: "12px", borderWidth: "4px", borderColor: "rgb(85, 208, 167)" }}></img>
+                                <p style={{ fontFamily: "sans-serif", color: "black" }}>{schizophrenia.title}</p>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* PTSD */}
+
+                <div style={{ margin: "10px", borderColor: "lightgray", borderTopWidth: "3px", paddingBottom: "40px" }}>
+                    <div>
+                        <p style={{ fontFamily: 'sans-serif', fontSize: "40px", color: "rgba(77, 189, 152, 0.846)", marginTop: "30px", marginBottom: "30px", marginLeft: "115px" }}>PTSD</p>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
+                        {ptsdVid.map((ptsd, index) => (
+                            <button onClick={() => router.push(ptsd.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
+                                <img src={ptsd.image} style={{ borderRadius: "12px", borderWidth: "4px", borderColor: "rgb(85, 208, 167)" }}></img>
+                                <p style={{ fontFamily: "sans-serif", color: "black" }}>{ptsd.title}</p>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* neurodevelopmental disorders */}
+
+                <div style={{ margin: "10px", borderColor: "lightgray", borderTopWidth: "3px", paddingBottom: "40px" }}>
+                    <div>
+                        <p style={{ fontFamily: 'sans-serif', fontSize: "40px", color: "rgba(77, 189, 152, 0.846)", marginTop: "30px", marginBottom: "30px", marginLeft: "115px" }}>NDD</p>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
+                        {nddVid.map((ndd, index) => (
+                            <button onClick={() => router.push(ndd.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
+                                <img src={ndd.image} style={{ borderRadius: "12px", borderWidth: "4px", borderColor: "rgb(85, 208, 167)" }}></img>
+                                <p style={{ fontFamily: "sans-serif", color: "black" }}>{ndd.title}</p>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* DBDD */}
+
+                <div style={{ margin: "10px", borderColor: "lightgray", borderTopWidth: "3px", paddingBottom: "40px" }}>
+                    <div>
+                        <p style={{ fontFamily: 'sans-serif', fontSize: "40px", color: "rgba(77, 189, 152, 0.846)", marginTop: "30px", marginBottom: "30px", marginLeft: "115px" }}>DBDD</p>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
+                        {dbddVid.map((dbdd, index) => (
+                            <button onClick={() => router.push(dbdd.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
+                                <img src={dbdd.image} style={{ borderRadius: "12px", borderWidth: "4px", borderColor: "rgb(85, 208, 167)" }}></img>
+                                <p style={{ fontFamily: "sans-serif", color: "black" }}>{dbdd.title}</p>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Depression */}
+
+                <div style={{ margin: "10px", borderColor: "lightgray", borderTopWidth: "3px", paddingBottom: "40px" }}>
+                    <div>
+                        <p style={{ fontFamily: 'sans-serif', fontSize: "40px", color: "rgba(77, 189, 152, 0.846)", marginTop: "30px", marginBottom: "30px", marginLeft: "115px" }}>Depression </p>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-around", alignContent: "center" }}>
+                        {depressionVid.map((depression, index) => (
+                            <button onClick={() => router.push(depression.url)} style={{ width: "320px", height: "230px", backgroundColor: "white" }}>
+                                <img src={depression.image} style={{ borderRadius: "12px", borderWidth: "4px", borderColor: "rgb(85, 208, 167)" }}></img>
+                                <p style={{ fontFamily: "sans-serif", color: "black" }}>{depression.title}</p>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+            </div>
+        </div >
     )
 }
